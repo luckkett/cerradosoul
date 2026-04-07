@@ -1,0 +1,2177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Cerrado Soul — Goiás: The Heart of Brazil</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --terra: #C4521A;
+    --gold: #D4A227;
+    --deep-green: #1C3A28;
+    --light-green: #3D6B4F;
+    --cream: #F4ECD8;
+    --dark: #0E1E14;
+    --smoke: #F9F5EE;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Cormorant Garamond', serif;
+    background: var(--smoke);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* ── NAVBAR ── */
+  .lang-bar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 12px 40px;
+    background: rgba(14,30,20,0.95);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(212,162,39,0.12);
+  }
+  .brand-mini {
+    font-family: 'Space Mono', monospace;
+    color: var(--gold);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  .lang-toggle {
+    display: flex; gap: 4px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 30px;
+    padding: 4px;
+  }
+  .lang-toggle button {
+    border: none; cursor: pointer;
+    padding: 6px 16px;
+    border-radius: 24px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    transition: all 0.3s;
+    background: transparent;
+    color: rgba(255,255,255,0.5);
+  }
+  .lang-toggle button.active {
+    background: var(--gold);
+    color: var(--dark);
+    font-weight: 700;
+  }
+  nav {
+    display: flex; gap: 28px;
+    list-style: none;
+  }
+  nav a {
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+  }
+  nav a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+  /* ── HERO ── */
+  .hero {
+    height: 100vh; min-height: 700px;
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 80%, rgba(196,82,26,0.35) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 20% 30%, rgba(212,162,39,0.2) 0%, transparent 50%),
+      linear-gradient(160deg, #0E1E14 0%, #1C3A28 40%, #0E1811 100%);
+  }
+  .cerrado-silhouette {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    width: 100%; height: 45%;
+  }
+  .hero-stars {
+    position: absolute; inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 10% 15%, rgba(212,162,39,0.8) 0%, transparent 100%),
+      radial-gradient(1px 1px at 25% 8%, rgba(255,255,255,0.6) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 40% 20%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 60% 12%, rgba(212,162,39,0.7) 0%, transparent 100%),
+      radial-gradient(1px 1px at 75% 18%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 85% 8%, rgba(212,162,39,0.6) 0%, transparent 100%),
+      radial-gradient(1px 1px at 90% 22%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 15% 35%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 55% 5%, rgba(255,255,255,0.5) 0%, transparent 100%);
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    text-align: center;
+    padding: 0 20px;
+    animation: fadeUp 1.2s ease both;
+  }
+  .hero-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+    opacity: 0.85;
+  }
+  .hero-logo { margin-bottom: 20px; display: inline-block; }
+  .logo-mark { width: 80px; height: 80px; margin: 0 auto 16px; }
+  h1.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.5rem, 9vw, 8rem);
+    font-weight: 900;
+    line-height: 0.9;
+    color: var(--cream);
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  h1.hero-title span { color: var(--gold); font-style: italic; }
+  .hero-sub {
+    font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+    color: rgba(244,236,216,0.65);
+    font-style: italic;
+    font-weight: 300;
+    margin-bottom: 48px;
+    letter-spacing: 0.02em;
+  }
+  .hero-cta {
+    display: inline-flex; gap: 16px; flex-wrap: wrap; justify-content: center;
+  }
+  .btn-primary {
+    background: var(--terra);
+    color: white;
+    padding: 16px 36px;
+    border: none; cursor: pointer;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  }
+  .btn-primary:hover { background: var(--gold); color: var(--dark); transform: translateY(-2px); }
+  .btn-outline {
+    border: 1px solid rgba(244,236,216,0.4);
+    color: var(--cream);
+    padding: 16px 36px;
+    text-decoration: none;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    display: inline-block;
+    transition: all 0.3s;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+  .scroll-indicator {
+    position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+    z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 8px;
+    animation: pulse 2s ease infinite;
+  }
+  .scroll-indicator span {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.55rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: rgba(244,236,216,0.4);
+  }
+  .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--gold), transparent); }
+
+  /* ── SECTIONS ── */
+  section { position: relative; }
+
+  /* ── ABOUT ── */
+  .about { background: var(--cream); padding: 120px 40px; }
+  .about-grid {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: center;
+  }
+  .about-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.1;
+    color: var(--deep-green);
+    margin-bottom: 24px;
+  }
+  .about-text h2 em { color: var(--terra); font-style: italic; }
+  .about-text p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #3a3a3a;
+    margin-bottom: 20px;
+    font-weight: 300;
+  }
+  .about-stats {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 24px; margin-top: 48px;
+  }
+  .stat { border-left: 3px solid var(--terra); padding-left: 20px; }
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem; font-weight: 900;
+    color: var(--terra); line-height: 1;
+  }
+  .stat-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem; letter-spacing: 0.1em;
+    text-transform: uppercase; color: #888;
+    margin-top: 4px;
+  }
+  .about-visual { position: relative; }
+  .about-card {
+    background: var(--deep-green);
+    padding: 60px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .about-card::before {
+    content: '';
+    position: absolute; top: -40px; right: -40px;
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    background: rgba(212,162,39,0.15);
+  }
+  .about-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem; color: var(--gold);
+    margin-bottom: 32px;
+  }
+  .about-card-list { list-style: none; }
+  .about-card-list li {
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    color: rgba(244,236,216,0.85);
+    font-size: 1.1rem;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .about-card-list li:last-child { border-bottom: none; }
+  .about-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .about-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+  .qr-badge {
+    display: inline-flex; align-items: center; gap: 12px;
+    background: rgba(212,162,39,0.1);
+    border: 1px solid rgba(212,162,39,0.3);
+    padding: 12px 20px;
+    margin-top: 32px;
+  }
+  .qr-box {
+    width: 48px; height: 48px;
+    background: var(--cream);
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 3px; padding: 6px;
+  }
+  .qr-box span { background: var(--dark); border-radius: 1px; }
+  .qr-text {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--gold);
+    line-height: 1.5;
+  }
+
+  /* ── PACKAGE ── */
+  .package { background: var(--dark); padding: 120px 40px; overflow: hidden; }
+  .section-header { text-align: center; margin-bottom: 80px; }
+  .section-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem; letter-spacing: 0.25em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 16px; display: block;
+  }
+  .section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: var(--cream);
+    line-height: 1.1;
+  }
+  .section-header h2 em { color: var(--terra); font-style: italic; }
+  .package-grid {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+  }
+  .pkg-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 48px 40px;
+    position: relative;
+    transition: all 0.4s;
+    overflow: hidden;
+  }
+  .pkg-card:hover { background: rgba(196,82,26,0.08); border-color: rgba(196,82,26,0.3); transform: translateY(-4px); }
+  .pkg-card::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--terra), var(--gold));
+    transform: scaleX(0);
+    transition: transform 0.4s;
+  }
+  .pkg-card:hover::after { transform: scaleX(1); }
+  .pkg-icon { 
+    width: 48px; 
+    height: 48px; 
+    margin-bottom: 20px; 
+    display: block; 
+  }
+  .pkg-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+  .pkg-number {
+    position: absolute; top: 24px; right: 32px;
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem; font-weight: 900;
+    color: rgba(255,255,255,0.03);
+    line-height: 1;
+  }
+  .pkg-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem; color: var(--cream);
+    margin-bottom: 16px;
+  }
+  .pkg-card h3 span {
+    display: block; font-size: 0.9rem;
+    color: var(--gold); font-style: italic;
+    margin-bottom: 4px;
+  }
+  .pkg-card p { color: rgba(244,236,216,0.6); font-size: 1.05rem; line-height: 1.7; font-weight: 300; }
+  .pkg-detail {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    line-height: 1.8;
+  }
+  .pkg-detail-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+  .pkg-detail-icon {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+  }
+  .pkg-detail-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* ── DESTINATIONS ── */
+  .destinations { background: var(--smoke); padding: 120px 40px; }
+  .dest-grid {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 2fr 1fr 1fr;
+    gap: 20px; margin-top: 0;
+  }
+  .dest-card {
+    position: relative; overflow: hidden;
+    cursor: pointer;
+    min-height: 500px;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    border-radius: 8px;
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .dest-card.featured { min-height: 600px; }
+  .dest-bg {
+    position: absolute; inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.5s ease;
+  }
+  .dest-card:hover .dest-bg { 
+    transform: scale(1.1); 
+    filter: brightness(1.1);
+  }
+  .dest-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+  }
+  .dest-bg-1 {
+    background-image: url('https://picsum.photos/seed/chapada-waterfall/1200/700');
+    background-color: #1C3A28;
+  }
+  .dest-bg-2 {
+    background-image: url('https://picsum.photos/seed/cidade-colonial/800/700');
+    background-color: #8B4513;
+  }
+  .dest-bg-3 {
+    background-image: url('https://picsum.photos/seed/pirenopolis-village/800/700');
+    background-color: #1C3A28;
+  }
+  .dest-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(14,30,20,0.92) 0%, rgba(14,30,20,0.3) 50%, rgba(0,0,0,0.15) 100%);
+    transition: background 0.5s ease;
+  }
+  .dest-card:hover .dest-overlay {
+    background: linear-gradient(to top, rgba(14,30,20,0.95) 0%, rgba(14,30,20,0.4) 60%, rgba(0,0,0,0.2) 100%);
+  }
+  .dest-content {
+    position: relative; z-index: 2;
+    padding: 36px 32px;
+    transform: translateY(0);
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .dest-card:hover .dest-content {
+    transform: translateY(-10px);
+  }
+  .dest-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem; letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px; display: block;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+  }
+  .dest-card:hover .dest-tag {
+    opacity: 1;
+  }
+  .dest-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    color: white;
+    line-height: 1.1;
+    margin-bottom: 12px;
+    transition: color 0.3s ease;
+  }
+  .dest-card:hover h3 {
+    color: var(--gold);
+  }
+  .dest-card p { 
+    color: rgba(255,255,255,0.75); 
+    font-size: 1rem; 
+    line-height: 1.6; 
+    font-weight: 300;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+  }
+  .dest-card:hover p {
+    opacity: 1;
+  }
+  .dest-pills { 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 8px; 
+    margin-top: 20px;
+    transform: translateY(10px);
+    opacity: 0.8;
+    transition: all 0.4s ease;
+  }
+  .dest-card:hover .dest-pills {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  .pill {
+    padding: 5px 14px;
+    border: 1px solid rgba(212,162,39,0.45);
+    color: var(--gold);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-radius: 20px;
+    backdrop-filter: blur(4px);
+    background: rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+  }
+  .pill:hover {
+    background: rgba(212,162,39,0.3);
+    border-color: var(--gold);
+    transform: scale(1.05);
+  }
+
+  /* ── ITINERARY ── */
+  .itinerary { background: var(--cream); padding: 120px 40px; }
+  .itin-wrap { max-width: 900px; margin: 0 auto; }
+  .itin-day {
+    display: grid; grid-template-columns: 80px 1fr;
+    gap: 32px;
+    margin-bottom: 48px;
+    position: relative;
+  }
+  .itin-day::before {
+    content: '';
+    position: absolute;
+    left: 39px; top: 60px; bottom: -48px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--terra), transparent);
+  }
+  .itin-day:last-child::before { display: none; }
+  .day-num { text-align: center; flex-shrink: 0; }
+  .day-circle {
+    width: 60px; height: 60px; border-radius: 50%;
+    background: var(--deep-green);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto;
+  }
+  .day-circle span { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.3rem; font-weight: 900; }
+  .day-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.55rem; color: #888; text-transform: uppercase;
+    letter-spacing: 0.1em; margin-top: 8px; text-align: center;
+  }
+  .day-content { padding-top: 8px; }
+  .day-content h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--deep-green); margin-bottom: 12px; }
+  .day-content h3 em { color: var(--terra); font-style: italic; }
+  .day-content p { font-size: 1.05rem; line-height: 1.7; color: #555; font-weight: 300; margin-bottom: 16px; }
+  .day-activities { display: flex; flex-wrap: wrap; gap: 8px; }
+  .activity-tag {
+    background: var(--deep-green);
+    color: var(--gold);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem; letter-spacing: 0.08em;
+    padding: 6px 14px;
+    text-transform: uppercase;
+  }
+
+  /* ── TRAVEL PLANS ── */
+  .travel-plans {
+    background: var(--dark);
+    padding: 120px 40px;
+    overflow: hidden;
+  }
+  .plans-grid {
+    max-width: 1240px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .plan-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex; flex-direction: column;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    position: relative;
+  }
+  .plan-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 32px 60px rgba(0,0,0,0.4);
+  }
+  .plan-card.featured {
+    border-color: rgba(212,162,39,0.4);
+    background: rgba(212,162,39,0.05);
+  }
+  .plan-badge {
+    position: absolute; top: 16px; right: 16px; z-index: 5;
+    background: var(--gold);
+    color: var(--dark);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 20px;
+  }
+  .plan-image {
+    height: 220px;
+    position: relative;
+    overflow: hidden;
+  }
+  .plan-image img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+  .plan-card:hover .plan-image img { transform: scale(1.06); }
+  .plan-image-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(14,30,20,0.7) 0%, transparent 60%);
+  }
+  .plan-body {
+    padding: 32px 28px;
+    flex: 1; display: flex; flex-direction: column;
+  }
+  .plan-tier {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .plan-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem; font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 6px;
+    line-height: 1.1;
+  }
+  .plan-name em { color: var(--terra); font-style: italic; }
+  .plan-duration {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem; letter-spacing: 0.08em;
+    color: rgba(244,236,216,0.45);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  .plan-price-block {
+    padding: 20px 0;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    margin-bottom: 20px;
+    display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap;
+  }
+  .plan-price-brl {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem; font-weight: 900;
+    color: var(--gold); line-height: 1;
+  }
+  .plan-price-usd {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    color: rgba(244,236,216,0.35);
+    letter-spacing: 0.05em;
+  }
+  .plan-price-pp {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    color: rgba(244,236,216,0.4);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: block;
+    width: 100%;
+    margin-top: 4px;
+  }
+  .plan-itinerary {
+    list-style: none;
+    margin-bottom: 24px;
+    flex: 1;
+  }
+  .plan-itinerary li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    color: rgba(244,236,216,0.7);
+    font-size: 0.95rem;
+    line-height: 1.4;
+    display: flex; align-items: flex-start; gap: 10px;
+  }
+  .plan-itinerary li:last-child { border-bottom: none; }
+  .plan-itinerary li .itin-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--terra);
+    flex-shrink: 0; margin-top: 6px;
+  }
+  .plan-includes {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    margin-bottom: 24px;
+  }
+  .plan-include-tag {
+    background: rgba(28,58,40,0.6);
+    border: 1px solid rgba(61,107,79,0.4);
+    color: rgba(244,236,216,0.65);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.08em;
+    padding: 4px 10px;
+    text-transform: uppercase;
+    border-radius: 3px;
+  }
+  .plan-cta {
+    display: block;
+    text-align: center;
+    padding: 14px 24px;
+    border: 1px solid rgba(196,82,26,0.6);
+    color: var(--terra);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s;
+    background: transparent;
+    cursor: pointer;
+  }
+  .plan-cta:hover, .plan-card.featured .plan-cta {
+    background: var(--terra);
+    color: white;
+    border-color: var(--terra);
+  }
+  .plan-card.featured .plan-cta:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--dark);
+  }
+
+  /* ── CERTIFICATIONS ── */
+  .certifications {
+    background: var(--smoke);
+    padding: 80px 40px;
+    border-top: 1px solid rgba(28,58,40,0.12);
+    border-bottom: 1px solid rgba(28,58,40,0.12);
+  }
+  .cert-header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+  .cert-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    color: var(--deep-green);
+    margin-top: 12px;
+  }
+  .cert-header h3 em { color: var(--terra); font-style: italic; }
+  .cert-row {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 24px;
+  }
+  .cert-badge {
+    display: flex; flex-direction: column; align-items: center;
+    gap: 12px;
+    padding: 32px 28px;
+    background: white;
+    border: 1px solid rgba(28,58,40,0.1);
+    border-radius: 8px;
+    min-width: 200px;
+    max-width: 220px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .cert-badge:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+  }
+  .cert-icon {
+    width: 80px; height: 80px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 8px;
+  }
+  .cert-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+  .cert-name {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--deep-green);
+    text-align: center;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+  .cert-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem;
+    color: #666;
+    text-align: center;
+    line-height: 1.4;
+  }
+  .cert-year {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--terra);
+    letter-spacing: 0.08em;
+    margin-top: 4px;
+  }
+
+  /* ── SOBRE NÓS (ABOUT US) ── */
+  .about-us {
+    background: var(--deep-green);
+    padding: 120px 40px;
+    overflow: hidden;
+  }
+  .about-us-inner {
+    max-width: 1200px; margin: 0 auto;
+  }
+  .about-us-top {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: start;
+    margin-bottom: 100px;
+  }
+  .about-us-text .section-tag-light {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem; letter-spacing: 0.25em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 16px; display: block;
+  }
+  .about-us-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    color: var(--cream);
+    line-height: 1.15;
+    margin-bottom: 24px;
+  }
+  .about-us-text h2 em { color: var(--gold); font-style: italic; }
+  .about-us-text p {
+    color: rgba(244,236,216,0.72);
+    font-size: 1.15rem;
+    line-height: 1.8;
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+  .about-us-values {
+    list-style: none;
+    margin-top: 32px;
+  }
+  .about-us-values li {
+    display: flex; align-items: flex-start; gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    color: rgba(244,236,216,0.8);
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+  .about-us-values li:last-child { border-bottom: none; }
+  .about-us-values li .val-icon {
+    font-size: 1.4rem; flex-shrink: 0; margin-top: 2px;
+  }
+  .about-us-values li strong {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    color: var(--gold);
+    font-style: italic;
+    margin-bottom: 4px;
+  }
+  .mission-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(212,162,39,0.2);
+    padding: 48px 40px;
+    position: relative;
+  }
+  .mission-card::before {
+    content: '"';
+    position: absolute;
+    top: 16px; left: 32px;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem; line-height: 1;
+    color: rgba(212,162,39,0.12);
+    font-style: italic;
+  }
+  .mission-card h3 {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--terra);
+    margin-bottom: 24px;
+  }
+  .mission-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem; font-style: italic;
+    color: var(--cream);
+    line-height: 1.5;
+    margin-bottom: 28px;
+    position: relative; z-index: 1;
+  }
+  .mission-quote em { color: var(--gold); }
+  .mission-details {
+    color: rgba(244,236,216,0.6);
+    font-size: 1rem;
+    line-height: 1.7;
+    font-weight: 300;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding-top: 24px;
+  }
+
+  /* ── TEAM SECTION ── */
+  .team-section {
+    margin-top: 60px;
+    padding-top: 60px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .team-header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  .team-header .section-tag-light {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.25em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 16px; display: block;
+  }
+  .team-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    color: var(--cream);
+    margin-bottom: 12px;
+  }
+  .team-header p {
+    color: rgba(244,236,216,0.6);
+    font-size: 1.1rem;
+    font-style: italic;
+  }
+  .team-row {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  .team-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 40px 28px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+  }
+  .team-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--terra), var(--gold));
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+  }
+  .team-card:hover { 
+    border-color: rgba(212,162,39,0.4);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+  }
+  .team-card:hover::before {
+    transform: scaleX(1);
+  }
+  .team-avatar {
+    width: 100px; height: 100px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--terra), var(--deep-green));
+    margin: 0 auto 20px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem; font-weight: 900;
+    color: var(--cream);
+    border: 3px solid rgba(212,162,39,0.3);
+    transition: all 0.4s ease;
+    position: relative;
+  }
+  .team-card:hover .team-avatar {
+    transform: scale(1.08);
+    border-color: var(--gold);
+    box-shadow: 0 8px 30px rgba(212,162,39,0.3);
+  }
+  .team-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; color: var(--cream);
+    margin-bottom: 6px;
+    transition: color 0.3s ease;
+  }
+  .team-card:hover .team-name {
+    color: var(--gold);
+  }
+  .team-role {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 16px;
+    opacity: 0.9;
+  }
+  .team-bio {
+    color: rgba(244,236,216,0.55);
+    font-size: 1rem; line-height: 1.7;
+    font-weight: 300;
+    font-style: italic;
+    transition: color 0.3s ease;
+  }
+  .team-card:hover .team-bio {
+    color: rgba(244,236,216,0.75);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark);
+    padding: 80px 40px 40px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  .footer-top {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 2fr 1fr 1fr;
+    gap: 60px; padding-bottom: 60px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .footer-brand h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; color: var(--cream);
+    margin-bottom: 16px;
+  }
+  .footer-brand h3 em { color: var(--terra); font-style: italic; }
+  .footer-brand p {
+    color: rgba(244,236,216,0.4);
+    font-size: 0.95rem; line-height: 1.6; font-weight: 300;
+    max-width: 280px;
+  }
+  .footer-contact {
+    margin-top: 20px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.06em;
+    color: rgba(244,236,216,0.3);
+    line-height: 2;
+  }
+  .footer-contact a { color: var(--gold); text-decoration: none; }
+  .footer-col h4 {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 20px;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col li {
+    padding: 8px 0;
+    color: rgba(244,236,216,0.5);
+    font-size: 0.95rem;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    transition: color 0.3s; cursor: pointer;
+  }
+  .footer-col li:hover { color: var(--cream); }
+  .footer-bottom {
+    max-width: 1200px; margin: 0 auto;
+    padding-top: 32px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 16px;
+  }
+  .footer-bottom p {
+    color: rgba(244,236,216,0.25);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem; letter-spacing: 0.08em;
+  }
+  .footer-certs {
+    display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
+    margin-top: 32px;
+  }
+  .footer-cert-dot {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(244,236,216,0.25);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 4px 10px;
+    border-radius: 2px;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 0.5; } 50% { opacity: 1; }
+  }
+
+  /* ── LANGUAGE CONTROL ── */
+  [data-lang] { display: block; }
+  [data-lang="pt"] { display: none; }
+  body.pt [data-lang="en"] { display: none; }
+  body.pt [data-lang="pt"] { display: block; }
+  body.pt [data-lang-inline="en"] { display: none; }
+  body.pt [data-lang-inline="pt"] { display: inline; }
+  [data-lang-inline] { display: inline; }
+  [data-lang-inline="pt"] { display: none; }
+
+  /* ── RESPONSIVE ── */
+  @media(max-width: 900px) {
+    .about-grid, .footer-top, .about-us-top { grid-template-columns: 1fr; gap: 40px; }
+    .package-grid, .plans-grid, .team-row { grid-template-columns: 1fr; }
+    .dest-grid { grid-template-columns: 1fr; }
+    .dest-card.featured { min-height: 400px; }
+    nav { display: none; }
+    .lang-bar { padding: 12px 20px; }
+    .cert-row { gap: 16px; }
+    .cert-badge { min-width: 160px; padding: 24px 20px; }
+  }
+  @media(max-width: 600px) {
+    section { padding-left: 24px !important; padding-right: 24px !important; }
+    .about, .package, .destinations, .itinerary, .travel-plans, .certifications, .about-us { padding: 80px 24px; }
+    .about-stats { grid-template-columns: 1fr 1fr; }
+    .team-card { padding: 32px 20px; }
+    .team-avatar { width: 80px; height: 80px; font-size: 1.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV BAR -->
+<div class="lang-bar">
+  <span class="brand-mini">Cerrado Soul™ — Goiás, Brasil</span>
+  <nav>
+    <a href="#package">
+      <span data-lang-inline="en">Package</span>
+      <span data-lang-inline="pt">Pacote</span>
+    </a>
+    <a href="#destinations">
+      <span data-lang-inline="en">Destinations</span>
+      <span data-lang-inline="pt">Destinos</span>
+    </a>
+    <a href="#plans">
+      <span data-lang-inline="en">Travel Plans</span>
+      <span data-lang-inline="pt">Planos</span>
+    </a>
+    <a href="#itinerary">
+      <span data-lang-inline="en">Itinerary</span>
+      <span data-lang-inline="pt">Roteiro</span>
+    </a>
+    <a href="#about-us">
+      <span data-lang-inline="en">About Us</span>
+      <span data-lang-inline="pt">Sobre Nós</span>
+    </a>
+  </nav>
+  <div class="lang-toggle">
+    <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+    <button id="btn-pt" onclick="setLang('pt')">PT</button>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-stars"></div>
+  <svg class="cerrado-silhouette" viewBox="0 0 1440 300" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,300 L0,200 Q20,180 30,160 L30,100 Q32,90 38,100 L38,140 Q45,120 52,110 L52,70 Q54,55 60,70 L60,140 Q68,110 78,100 L78,160 Q90,130 100,120 L100,80 Q103,60 110,80 L110,130 Q120,100 130,90 L130,50 Q133,30 140,50 L140,130 Q152,100 162,95 L162,160 L180,140 L180,180 Q200,140 220,130 L220,80 Q223,55 230,80 L230,150 Q245,120 258,110 L258,60 Q261,40 268,60 L268,130 Q280,100 292,95 L292,170 Q310,140 325,130 L325,190 L350,160 Q365,130 378,125 L378,75 Q381,50 388,75 L388,145 Q400,110 412,100 L412,160 Q425,130 440,120 L440,70 Q443,45 450,70 L450,150 Q465,120 480,115 L480,170 L500,150 Q515,120 530,115 L530,65 Q533,40 540,65 L540,145 Q555,115 570,110 L570,170 Q590,140 608,135 L608,85 Q611,60 618,85 L618,160 Q630,130 645,125 L645,180 L660,160 Q670,135 682,130 L682,80 Q685,55 692,80 L692,160 Q705,130 718,125 L718,175 Q730,145 742,140 L742,90 Q745,65 752,90 L752,165 Q765,135 778,130 L778,190 L800,170 Q815,140 830,135 L830,80 Q833,55 840,80 L840,160 Q855,130 870,125 L870,180 Q882,150 895,145 L895,95 Q898,70 905,95 L905,170 Q918,140 932,135 L932,200 L950,180 Q965,150 980,145 L980,90 Q983,65 990,90 L990,170 Q1005,140 1020,135 L1020,185 Q1035,155 1048,150 L1048,100 Q1051,75 1058,100 L1058,180 Q1075,150 1090,145 L1090,200 L1110,175 Q1125,145 1140,140 L1140,85 Q1143,60 1150,85 L1150,165 Q1165,135 1180,130 L1180,190 L1200,170 Q1215,145 1228,140 L1228,90 Q1231,65 1238,90 L1238,180 Q1252,150 1268,145 L1268,200 Q1285,165 1300,160 L1300,110 Q1303,85 1310,110 L1310,180 Q1325,150 1340,145 L1340,200 L1360,175 Q1390,145 1410,140 L1410,85 Q1413,60 1420,85 L1420,165 L1440,145 L1440,300 Z"
+    fill="rgba(14,30,20,0.95)" />
+    <path d="M0,300 L0,240 Q50,210 100,220 Q150,230 200,215 Q250,200 300,210 Q350,220 400,205 Q450,190 500,200 Q550,210 600,200 Q650,190 700,205 Q750,220 800,210 Q850,200 900,215 Q950,230 1000,220 Q1050,210 1100,225 Q1150,240 1200,230 Q1250,220 1300,235 Q1350,250 1400,240 L1440,245 L1440,300 Z"
+    fill="rgba(28,58,40,0.8)" />
+  </svg>
+  <div class="hero-content">
+    <p class="hero-label">
+      <span data-lang-inline="en">✦ Exclusive Tourism — Goiás, Brazil ✦</span>
+      <span data-lang-inline="pt">✦ Turismo Exclusivo — Goiás, Brasil ✦</span>
+    </p>
+    <div class="hero-logo">
+      <svg class="logo-mark" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="40" cy="40" r="38" stroke="#D4A227" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <path d="M40 8 L43 26 L56 14 L48 30 L68 28 L53 38 L68 48 L48 46 L56 62 L43 50 L40 68 L37 50 L24 62 L32 46 L12 48 L27 38 L12 28 L32 30 L24 14 L37 26 Z" fill="#D4A227" opacity="0.9"/>
+        <circle cx="40" cy="38" r="10" fill="#1C3A28"/>
+        <path d="M28 55 Q34 48 40 52 Q46 48 52 55" stroke="#C4521A" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <h1 class="hero-title">Cerrado<br/><span>Soul</span></h1>
+    <p class="hero-sub">
+      <span data-lang-inline="en">Where Brazil's Heart Beats Wild</span>
+      <span data-lang-inline="pt">Onde o Coração do Brasil Pulsa</span>
+    </p>
+    <div class="hero-cta">
+      <a href="#plans" class="btn-primary">
+        <span data-lang-inline="en">See Our Plans</span>
+        <span data-lang-inline="pt">Ver Planos</span>
+      </a>
+      <a href="#destinations" class="btn-outline">
+        <span data-lang-inline="en">Our Destinations</span>
+        <span data-lang-inline="pt">Nossos Destinos</span>
+      </a>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <span>scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ABOUT / WHY US -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-text">
+      <h2 data-lang="en">Discover the <em>Soul</em> of Brazil's Hidden Gem</h2>
+      <h2 data-lang="pt">Descubra a <em>Alma</em> da Joia Escondida do Brasil</h2>
+      <p data-lang="en">Cerrado Soul is a premium travel agency dedicated to showcasing the extraordinary beauty of Goiás — a state that captivates with its ancient history, breathtaking landscapes, and vibrant culture. We design immersive experiences exclusively within Goiás.</p>
+      <p data-lang="pt">A Cerrado Soul é uma agência de turismo premium dedicada a revelar a extraordinária beleza de Goiás — um estado que encanta com sua história milenar, paisagens deslumbrantes e cultura vibrante. Criamos experiências imersivas exclusivamente em Goiás.</p>
+      <p data-lang="en">From the mystical waters of Chapada dos Veadeiros to the colonial streets of Cidade de Goiás, every journey we offer is crafted to create lasting memories.</p>
+      <p data-lang="pt">Das águas místicas da Chapada dos Veadeiros às ruas coloniais da Cidade de Goiás, cada viagem que oferecemos é criada para gerar memórias duradouras.</p>
+      <div class="about-stats">
+        <div class="stat">
+          <div class="stat-number">7+</div>
+          <div class="stat-label">Days / Dias</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">3</div>
+          <div class="stat-label">Destinations / Destinos</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Bilingual / Bilíngue</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">5★</div>
+          <div class="stat-label">Premium Service</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-visual">
+      <div class="about-card">
+        <div class="about-card-title">
+          <span data-lang="en">Why Goiás?</span>
+          <span data-lang="pt">Por que Goiás?</span>
+        </div>
+        <ul class="about-card-list">
+          <li data-lang="en">
+            <span class="about-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" fill="#D4A227"/></svg></span>
+            Richest cerrado biodiversity in the world
+          </li>
+          <li data-lang="pt">
+            <span class="about-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" fill="#D4A227"/></svg></span>
+            Maior biodiversidade do cerrado no mundo
+          </li>
+          <li data-lang="en">
+            <span class="about-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z" fill="#D4A227"/><path d="M12 5L5 8.5v7.5c0 3.5 2.5 6.5 7 7.5 4.5-1 7-4 7-7.5V8.5L12 5z" fill="#1C3A28"/></svg></span>
+            UNESCO World Heritage colonial cities
+          </li>
+          <li data-lang="pt">
+            <span class="about-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z" fill="#D4A227"/><path d="M12 5L5 8.5v7.5c0 3.5 2.5 6.5 7 7.5 4.5-1 7-4 7-7.5V8.5L12 5z" fill="#1C3A28"/></svg></span>
+            Cidades coloniais Patrimônio da UNESCO
+          </li>
+          <li data-lang="en">
+            <span class="about-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 22c4.97 0 9-4.03 9-9-4.5 0-9-9-9-9s-4.5 9-9 9c0 4.97 4.03 9 9 9z" fill="#D4A227" opacity="0.3"/><path d="M12 20c3.87 0 7-3.13 7-7-3.5 0-7-7-7-7s-3.5 7-7 7c0 3.87 3.13 7 7 7z" fill="#D4A227"/></svg></span>
+            Pristine waterfalls & crystalline rivers
+          </li>
+          <li data-lang="pt">
+            <span class="about-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 22c4.97 0 9-4.03 9-9-4.5 0-9-9-9-9s-4.5 9-9 9c0 4.97 4.03 9 9 9z" fill="#D4A227" opacity="0.3"/><path d="M12 20c3.87 0 7-3.13 7-7-3.5 0-7-7-7-7s-3.5 7-7 7c0 3.87 3.13 7 7 7z" fill="#D4A227"/></svg></span>
+            Cachoeiras virgens e rios cristalinos
+          </li>
+          <li data-lang="en">
+            <span class="about-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#D4A227" stroke-width="1.5" fill="none"/><path d="M8 12h8M12 8v8" stroke="#D4A227" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+            Authentic Goianese gastronomy
+          </li>
+          <li data-lang="pt">
+            <span class="about-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#D4A227" stroke-width="1.5" fill="none"/><path d="M8 12h8M12 8v8" stroke="#D4A227" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+            Gastronomia goiana autêntica
+          </li>
+          <li data-lang="en">
+            <span class="about-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#D4A227"/></svg></span>
+            Off the beaten path — truly unspoiled
+          </li>
+          <li data-lang="pt">
+            <span class="about-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#D4A227"/></svg></span>
+            Longe dos roteiros massificados
+          </li>
+        </ul>
+        <div class="qr-badge">
+          <div class="qr-box">
+            <span></span><span style="background:transparent"></span><span></span>
+            <span style="background:transparent"></span><span></span><span style="background:transparent"></span>
+            <span></span><span style="background:transparent"></span><span></span>
+          </div>
+          <div class="qr-text">
+            Scan to watch our video<br/>
+            Escaneie para ver o vídeo
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- PACKAGE FEATURES -->
+<section class="package" id="package">
+  <div class="section-header">
+    <span class="section-tag">
+      <span data-lang-inline="en">The Complete Experience</span>
+      <span data-lang-inline="pt">A Experiência Completa</span>
+    </span>
+    <h2 data-lang="en">The <em>Cerrado Soul</em> Package</h2>
+    <h2 data-lang="pt">O Pacote <em>Cerrado Soul</em></h2>
+  </div>
+  <div class="package-grid">
+    <div class="pkg-card">
+      <span class="pkg-icon">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M42 24C42 33.941 33.941 42 24 42C14.059 42 6 33.941 6 24C6 14.059 14.059 6 24 6C33.941 6 42 14.059 42 24Z" fill="#C4521A" opacity="0.15"/>
+          <path d="M40 24C40 32.837 32.837 40 24 40C15.163 40 8 32.837 8 24C8 15.163 15.163 8 24 8C32.837 8 40 15.163 40 24Z" stroke="#C4521A" stroke-width="1.5" fill="none"/>
+          <path d="M14 28L18 20L24 22L30 16L34 24" stroke="#D4A227" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="24" cy="24" r="3" fill="#D4A227"/>
+          <path d="M18 32L22 26" stroke="#C4521A" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <div class="pkg-number">01</div>
+      <h3>
+        <span data-lang="en">Transfer / Transport<span style="display:block;font-size:0.9rem;color:var(--gold);font-style:italic;margin-bottom:4px;">Getting You There</span></span>
+        <span data-lang="pt">Translado<span style="display:block;font-size:0.9rem;color:var(--gold);font-style:italic;margin-bottom:4px;">Chegando com Conforto</span></span>
+      </h3>
+      <p data-lang="en">International flights to Santa Genoveva Airport (GYN) in Goiânia. Private executive transfers to each destination, including air-conditioned coaches and 4x4 SUVs for ecological routes.</p>
+      <p data-lang="pt">Voos internacionais ao Aeroporto Santa Genoveva (GYN) em Goiânia. Translados executivos privativos para cada destino, incluindo ônibus climatizados e SUVs 4x4 para rotas ecológicas.</p>
+      <div class="pkg-detail">
+        <div class="pkg-detail-item">
+          <span class="pkg-detail-icon"><svg viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="#D4A227" stroke-width="1"/><path d="M4 7L6 9L10 5" stroke="#D4A227" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span>GYN — Goiânia</span>
+        </div>
+        <div class="pkg-detail-item">
+          <span class="pkg-detail-icon"><svg viewBox="0 0 14 14" fill="none"><rect x="2" y="4" width="10" height="6" rx="1" stroke="#D4A227" stroke-width="1"/><circle cx="4" cy="7" r="1" fill="#D4A227"/><circle cx="10" cy="7" r="1" fill="#D4A227"/></svg></span>
+          <span>Private coach transfers</span>
+        </div>
+        <div class="pkg-detail-item">
+          <span class="pkg-detail-icon"><svg viewBox="0 0 14 14" fill="none"><rect x="2" y="5" width="10" height="5" rx="1" stroke="#D4A227" stroke-width="1"/><circle cx="4" cy="9" r="1.5" stroke="#D4A227"/><circle cx="10" cy="9" r="1.5" stroke="#D4A227"/><path d="M3 5L4 3H10L11 5" stroke="#D4A227" stroke-width="1"/></svg></span>
+          <span>4x4 off-road vehicles available</span>
+        </div>
+      </div>
+    </div>
+    <div class="pkg-card">
+      <span class="pkg-icon">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="8" y="16" width="32" height="26" rx="2" fill="#C4521A" opacity="0.15"/>
+          <rect x="8" y="16" width="32" height="26" rx="2" stroke="#D4A227" stroke-width="1.5" fill="none"/>
+          <path d="M16 16V12C16 9.791 17.791 8 20 8H28C30.209 8 32 9.791 32 12V16" stroke="#D4A227" stroke-width="1.5" fill="none"/>
+          <rect x="14" y="22" width="8" height="8" rx="1" stroke="#C4521A" stroke-width="1" fill="none"/>
+          <rect x="28" y="22" width="6" height="6" rx="1" stroke="#C4521A" stroke-width="1" fill="none"/>
+          <path d="M14 36H34" stroke="#D4A227" stroke-width="1" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <div class="pkg-number">02</div>
+      <h3>
+        <span data-lang="en">Accommodation<span style="display:block;font-size:0.9rem;color:var(--gold);font-style:italic;margin-bottom:4px;">Immersive Stays</span></span>
+        <span data-lang="pt">Acomodação<span style="display:block;font-size:0.9rem;color:var(--gold);font-style:italic;margin-bottom:4px;">Hospedagem Imersiva</span></span>
+      </h3>
+      <p data-lang="en">Stay in carefully selected boutique pousadas and eco-lodges that blend seamlessly with the cerrado environment. Enjoy premium comfort while treading lightly on the land.</p>
+      <p data-lang="pt">Hospede-se em pousadas boutique e eco-lodges cuidadosamente selecionados, que se integram harmoniosamente ao cerrado. Conforto premium com mínimo impacto ambiental.</p>
+      <div class="pkg-detail">
+        <div class="pkg-detail-item">
+          <span class="pkg-detail-icon"><svg viewBox="0 0 14 14" fill="none"><path d="M7 2L12 6V12H2V6L7 2Z" stroke="#D4A227" stroke-width="1" fill="none"/><rect x="5" y="8" width="4" height="4" fill="#C4521A" opacity="0.3"/></svg></span>
+          <span>Pousada do Rio Quente (Chapada)</span>
+        </div>
+        <div class="pkg-detail-item">
+          <span class="pkg-detail-icon"><svg viewBox="0 0 14 14" fill="none"><rect x="3" y="4" width="8" height="8" rx="1" stroke="#D4A227" stroke-width="1" fill="none"/><path d="M5 4V2H9V4" stroke="#D4A227" stroke-width="1"/></svg></span>
+          <span>Solar dos Pampulha (Goiás Velho)</span>
+        </div>
+        <div class="pkg-detail-item">
+          <span class="pkg-detail-icon"><svg viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5" stroke="#D4A227" stroke-width="1" fill="none"/><path d="M7 4V7L9 9" stroke="#C4521A" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          <span>Eco-lodge Pirenópolis</span>
+        </div>
+      </div>
+    </div>
+    <div class="pkg-card">
+      <span class="pkg-icon">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="24" r="18" fill="#C4521A" opacity="0.15"/>
+          <circle cx="24" cy="24" r="16" stroke="#D4A227" stroke-width="1.5" fill="none"/>
+          <path d="M18 20H30" stroke="#D4A227" stroke-width="2" stroke-linecap="round"/>
+          <path d="M18 26H30" stroke="#D4A227" stroke-width="2" stroke-linecap="round"/>
+          <path d="M20 32H28" stroke="#C4521A" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="16" cy="20" r="2" fill="#C4521A"/>
+          <circle cx="32" cy="26" r="2" fill="#C4521A"/>
+        </svg>
+      </span>
+      <div class="pkg-number">03</div>
+      <h3>
+        <span data-lang="en">Gastronomy<span style="display:block;font-size:0.9rem;color:var(--gold);font-style:italic;margin-bottom:4px;">Flavours of the Cerrado</span></span>
+        <span data-lang="pt">Alimentação<span style="display:block;font-size:0.9rem;color:var(--gold);font-style:italic;margin-bottom:4px;">Sabores do Cerrado</span></span>
+      </h3>
+      <p data-lang="en">Full-board meal plan featuring authentic goianese cuisine — pequi, guariroba, empadão goiano, and arroz com suã. Farm-to-table experiences and cerrado fruit tastings included.</p>
+      <p data-lang="pt">Plano alimentar completo com culinária goiana autêntica — pequi, guariroba, empadão goiano e arroz com suã. Experiências do campo à mesa e degustação de frutos do cerrado incluídas.</p>
+      <div class="pkg-detail">
+        <div class="pkg-detail-item">
+          <span class="pkg-detail-icon"><svg viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5" stroke="#D4A227" stroke-width="1" fill="none"/><circle cx="7" cy="7" r="2" fill="#C4521A"/></svg></span>
+          <span>Empadão Goiano Experience</span>
+        </div>
+        <div class="pkg-detail-item">
+          <span class="pkg-detail-icon"><svg viewBox="0 0 14 14" fill="none"><path d="M7 2C4 2 2 5 2 7C2 10 4 12 7 12C10 12 12 10 12 7C12 5 10 2 7 2Z" stroke="#D4A227" stroke-width="1" fill="none"/><path d="M5 7L7 9L10 5" stroke="#C4521A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span>Pequi & Baru tasting session</span>
+        </div>
+        <div class="pkg-detail-item">
+          <span class="pkg-detail-icon"><svg viewBox="0 0 14 14" fill="none"><path d="M3 10C3 7 5 5 7 5C9 5 11 7 11 10" stroke="#D4A227" stroke-width="1.5" stroke-linecap="round" fill="none"/><path d="M7 3V7" stroke="#C4521A" stroke-width="2" stroke-linecap="round"/></svg></span>
+          <span>Cerrado coffee ritual each morning</span>
+        </div>
+      </div>
+    </div>
+    <div class="pkg-card">
+      <span class="pkg-icon">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="8" y="8" width="32" height="32" rx="4" fill="#C4521A" opacity="0.15"/>
+          <rect x="8" y="8" width="32" height="32" rx="4" stroke="#D4A227" stroke-width="1.5" fill="none"/>
+          <path d="M14 34L20 24L26 30L34 18" stroke="#D4A227" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="34" cy="18" r="3" fill="#C4521A"/>
+          <path d="M12 12H16" stroke="#D4A227" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M12 16H14" stroke="#D4A227" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <div class="pkg-number">04</div>
+      <h3>
+        <span data-lang="en">Tourist Itinerary<span style="display:block;font-size:0.9rem;color:var(--gold);font-style:italic;margin-bottom:4px;">7 Days of Wonder</span></span>
+        <span data-lang="pt">Roteiro Turístico<span style="display:block;font-size:0.9rem;color:var(--gold);font-style:italic;margin-bottom:4px;">7 Dias de Maravilha</span></span>
+      </h3>
+      <p data-lang="en">A 7-day curated route through Goiás's greatest natural and historical wonders: Chapada dos Veadeiros, the UNESCO city of Goiás, and the charming colonial town of Pirenópolis.</p>
+      <p data-lang="pt">Um roteiro curado de 7 dias pelas maiores maravilhas naturais e históricas de Goiás: Chapada dos Veadeiros, a cidade de Goiás (Patrimônio da UNESCO) e a charmosa Pirenópolis.</p>
+      <div class="pkg-detail">
+        <div class="pkg-detail-item">
+          <span class="pkg-detail-icon"><svg viewBox="0 0 14 14" fill="none"><path d="M7 2L12 6V12H2V6L7 2Z" stroke="#D4A227" stroke-width="1" fill="none"/></svg></span>
+          <span>Chapada dos Veadeiros NP</span>
+        </div>
+        <div class="pkg-detail-item">
+          <span class="pkg-detail-icon"><svg viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5" stroke="#D4A227" stroke-width="1" fill="none"/><path d="M7 4V7L9 9" stroke="#C4521A" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          <span>Cidade de Goiás — UNESCO</span>
+        </div>
+        <div class="pkg-detail-item">
+          <span class="pkg-detail-icon"><svg viewBox="0 0 14 14" fill="none"><rect x="3" y="4" width="8" height="8" rx="1" stroke="#D4A227" stroke-width="1" fill="none"/><circle cx="7" cy="8" r="2" fill="#C4521A" opacity="0.5"/></svg></span>
+          <span>Pirenópolis — Colonial town</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DESTINATIONS -->
+<section class="destinations" id="destinations">
+  <div style="max-width:1200px; margin: 0 auto 60px;">
+    <div class="section-header" style="text-align:left; margin-bottom:0;">
+      <span class="section-tag" style="color: var(--terra)">
+        <span data-lang-inline="en">Where We Take You</span>
+        <span data-lang-inline="pt">Onde Te Levamos</span>
+      </span>
+      <h2 style="color: var(--dark);">
+        <span data-lang="en">Three <em style="color:var(--terra)">Iconic</em> Destinations</span>
+        <span data-lang="pt">Três Destinos <em style="color:var(--terra)">Icônicos</em></span>
+      </h2>
+    </div>
+  </div>
+  <div class="dest-grid" style="max-width:1200px; margin: 0 auto;">
+    <div class="dest-card featured">
+      <div class="dest-bg dest-bg-1"></div>
+      <div class="dest-overlay"></div>
+      <div class="dest-content">
+        <span class="dest-tag">
+          <span data-lang-inline="en">National Park — Nature</span>
+          <span data-lang-inline="pt">Parque Nacional — Natureza</span>
+        </span>
+        <h3>Chapada dos Veadeiros</h3>
+        <p data-lang="en">A UNESCO World Heritage sanctuary of cerrado magic — ancient waterfalls, crystal rivers, mystical energy vortexes, and the most spectacular starry skies in South America.</p>
+        <p data-lang="pt">Um santuário Patrimônio da UNESCO de magia do cerrado — cachoeiras antigas, rios cristalinos, vórtices de energia mística e os céus estrelados mais espetaculares da América do Sul.</p>
+        <div class="dest-pills">
+          <span class="pill">Cachoeiras / Waterfalls</span>
+          <span class="pill">Trekking</span>
+          <span class="pill">Vale da Lua</span>
+          <span class="pill">UNESCO</span>
+        </div>
+      </div>
+    </div>
+    <div class="dest-card">
+      <div class="dest-bg dest-bg-2"></div>
+      <div class="dest-overlay"></div>
+      <div class="dest-content">
+        <span class="dest-tag">
+          <span data-lang-inline="en">Historical City</span>
+          <span data-lang-inline="pt">Cidade Histórica</span>
+        </span>
+        <h3>Cidade de Goiás</h3>
+        <p data-lang="en">The colonial jewel. A UNESCO city frozen in 18th-century baroque splendour, with cobblestone streets and baroque churches.</p>
+        <p data-lang="pt">A joia colonial. Uma cidade UNESCO preservada no esplendor barroco do século XVIII, com ruas de pedra e igrejas barrocas.</p>
+        <div class="dest-pills">
+          <span class="pill">UNESCO</span>
+          <span class="pill">Baroque</span>
+          <span class="pill">Museums</span>
+        </div>
+      </div>
+    </div>
+    <div class="dest-card">
+      <div class="dest-bg dest-bg-3"></div>
+      <div class="dest-overlay"></div>
+      <div class="dest-content">
+        <span class="dest-tag">
+          <span data-lang-inline="en">Charming Village</span>
+          <span data-lang-inline="pt">Vila Encantadora</span>
+        </span>
+        <h3>Pirenópolis</h3>
+        <p data-lang="en">Colonial charm meets cerrado adventure — waterfalls, festivals, and artisanal silver culture.</p>
+        <p data-lang="pt">Charme colonial encontra aventura no cerrado — cachoeiras, festivais e cultura artesanal em prata.</p>
+        <div class="dest-pills">
+          <span class="pill">Adventure</span>
+          <span class="pill">Festivals</span>
+          <span class="pill">Culture</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAVEL PLANS -->
+<section class="travel-plans" id="plans">
+  <div class="section-header">
+    <span class="section-tag">
+      <span data-lang-inline="en">Choose Your Journey</span>
+      <span data-lang-inline="pt">Escolha sua Jornada</span>
+    </span>
+    <h2 data-lang="en">Travel <em>Plans & Pricing</em></h2>
+    <h2 data-lang="pt">Planos de <em>Viagem & Preços</em></h2>
+  </div>
+  <div class="plans-grid">
+
+    <!-- PLAN 1: Essencial -->
+    <div class="plan-card">
+      <div class="plan-image">
+        <img src="https://picsum.photos/seed/cerrado-essencial-nature/900/440" alt="Cerrado Nature Experience" loading="lazy"/>
+        <div class="plan-image-overlay"></div>
+      </div>
+      <div class="plan-body">
+        <div class="plan-tier">
+          <span data-lang-inline="en">Entry Experience</span>
+          <span data-lang-inline="pt">Experiência Inicial</span>
+        </div>
+        <div class="plan-name">
+          <span data-lang="en">Cerrado <em>Essencial</em></span>
+          <span data-lang="pt">Cerrado <em>Essencial</em></span>
+        </div>
+        <div class="plan-duration">
+          <span data-lang-inline="en">3 Days · 2 Nights · Chapada dos Veadeiros</span>
+          <span data-lang-inline="pt">3 Dias · 2 Noites · Chapada dos Veadeiros</span>
+        </div>
+        <div class="plan-price-block">
+          <div>
+            <div class="plan-price-brl">R$ 2.890</div>
+            <span class="plan-price-usd">≈ USD 578</span>
+            <span class="plan-price-pp">
+              <span data-lang-inline="en">per person · double occupancy</span>
+              <span data-lang-inline="pt">por pessoa · apartamento duplo</span>
+            </span>
+          </div>
+        </div>
+        <ul class="plan-itinerary">
+          <li><span class="itin-dot"></span>
+            <span data-lang="en"><strong>Day 1</strong> — Arrival in Alto Paraíso, check-in pousada, welcome dinner with cerrado cuisine</span>
+            <span data-lang="pt"><strong>Dia 1</strong> — Chegada em Alto Paraíso, check-in pousada, jantar de boas-vindas</span>
+          </li>
+          <li><span class="itin-dot"></span>
+            <span data-lang="en"><strong>Day 2</strong> — Full-day trekking in Chapada dos Veadeiros NP; Cariocas & Corumbá Waterfalls</span>
+            <span data-lang="pt"><strong>Dia 2</strong> — Trekking no Parque Nacional; Cachoeiras Cariocas & Corumbá</span>
+          </li>
+          <li><span class="itin-dot"></span>
+            <span data-lang="en"><strong>Day 3</strong> — Sunrise at Vale da Lua; transfer back to Goiânia airport</span>
+            <span data-lang="pt"><strong>Dia 3</strong> — Amanhecer no Vale da Lua; translado ao aeroporto de Goiânia</span>
+          </li>
+        </ul>
+        <div class="plan-includes">
+          <span class="plan-include-tag">✓ <span data-lang-inline="en">Accommodation</span><span data-lang-inline="pt">Hospedagem</span></span>
+          <span class="plan-include-tag">✓ <span data-lang-inline="en">Meals</span><span data-lang-inline="pt">Refeições</span></span>
+          <span class="plan-include-tag">✓ <span data-lang-inline="en">Bilingual Guide</span><span data-lang-inline="pt">Guia Bilíngue</span></span>
+          <span class="plan-include-tag">✓ <span data-lang-inline="en">Transfers</span><span data-lang-inline="pt">Translados</span></span>
+        </div>
+        <a href="#contact" class="plan-cta">
+          <span data-lang-inline="en">Reserve Now</span>
+          <span data-lang-inline="pt">Reservar Agora</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- PLAN 2: Completo (FEATURED) -->
+    <div class="plan-card featured">
+      <div class="plan-badge">
+        <span data-lang-inline="en">Most Popular</span>
+        <span data-lang-inline="pt">Mais Popular</span>
+      </div>
+      <div class="plan-image">
+        <img src="https://picsum.photos/seed/cerrado-completo-journey/900/440" alt="Goiás 7-Day Journey" loading="lazy"/>
+        <div class="plan-image-overlay"></div>
+      </div>
+      <div class="plan-body">
+        <div class="plan-tier">
+          <span data-lang-inline="en">Signature Journey</span>
+          <span data-lang-inline="pt">Jornada Completa</span>
+        </div>
+        <div class="plan-name">
+          <span data-lang="en">Cerrado <em>Completo</em></span>
+          <span data-lang="pt">Cerrado <em>Completo</em></span>
+        </div>
+        <div class="plan-duration">
+          <span data-lang-inline="en">7 Days · 6 Nights · 3 Destinations</span>
+          <span data-lang-inline="pt">7 Dias · 6 Noites · 3 Destinos</span>
+        </div>
+        <div class="plan-price-block">
+          <div>
+            <div class="plan-price-brl">R$ 5.490</div>
+            <span class="plan-price-usd">≈ USD 1.098</span>
+            <span class="plan-price-pp">
+              <span data-lang-inline="en">per person · double occupancy</span>
+              <span data-lang-inline="pt">por pessoa · apartamento duplo</span>
+            </span>
+          </div>
+        </div>
+        <ul class="plan-itinerary">
+          <li><span class="itin-dot"></span>
+            <span data-lang="en"><strong>Days 1–2</strong> — Arrival Goiânia; transfer to Chapada dos Veadeiros; waterfall trekking & Vale da Lua</span>
+            <span data-lang="pt"><strong>Dias 1–2</strong> — Chegada Goiânia; Chapada dos Veadeiros; trekking e Vale da Lua</span>
+          </li>
+          <li><span class="itin-dot"></span>
+            <span data-lang="en"><strong>Day 3</strong> — Salto do Rio Preto Falls (80m); cerrado flora & wildlife tour</span>
+            <span data-lang="pt"><strong>Dia 3</strong> — Cachoeiras do Salto do Rio Preto (80m); flora e fauna do cerrado</span>
+          </li>
+          <li><span class="itin-dot"></span>
+            <span data-lang="en"><strong>Day 4</strong> — Transfer to Cidade de Goiás (UNESCO); baroque churches & colonial museums</span>
+            <span data-lang="pt"><strong>Dia 4</strong> — Cidade de Goiás (UNESCO); igrejas barrocas e museus coloniais</span>
+          </li>
+          <li><span class="itin-dot"></span>
+            <span data-lang="en"><strong>Day 5</strong> — Pirenópolis; Cachoeira do Abade; artisanal silver market</span>
+            <span data-lang="pt"><strong>Dia 5</strong> — Pirenópolis; Cachoeira do Abade; mercado de prata artesanal</span>
+          </li>
+          <li><span class="itin-dot"></span>
+            <span data-lang="en"><strong>Days 6–7</strong> — Free activities; hot-air balloon; farewell dinner; departure GYN</span>
+            <span data-lang="pt"><strong>Dias 6–7</strong> — Atividades livres; voo de balão; jantar de despedida; partida GYN</span>
+          </li>
+        </ul>
+        <div class="plan-includes">
+          <span class="plan-include-tag">✓ <span data-lang-inline="en">All Accommodation</span><span data-lang-inline="pt">Toda Hospedagem</span></span>
+          <span class="plan-include-tag">✓ <span data-lang-inline="en">Full Board</span><span data-lang-inline="pt">Pensão Completa</span></span>
+          <span class="plan-include-tag">✓ <span data-lang-inline="en">Bilingual Guide</span><span data-lang-inline="pt">Guia Bilíngue</span></span>
+          <span class="plan-include-tag">✓ <span data-lang-inline="en">All Transfers</span><span data-lang-inline="pt">Todos Translados</span></span>
+          <span class="plan-include-tag">✓ <span data-lang-inline="en">Entry Fees</span><span data-lang-inline="pt">Ingressos</span></span>
+          <span class="plan-include-tag">✓ <span data-lang-inline="en">Farewell Kit</span><span data-lang-inline="pt">Kit Despedida</span></span>
+        </div>
+        <a href="#contact" class="plan-cta">
+          <span data-lang-inline="en">Reserve Now</span>
+          <span data-lang-inline="pt">Reservar Agora</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- PLAN 3: Premium -->
+    <div class="plan-card">
+      <div class="plan-image">
+        <img src="https://picsum.photos/seed/cerrado-premium-luxury/900/440" alt="Cerrado Premium Luxury" loading="lazy"/>
+        <div class="plan-image-overlay"></div>
+      </div>
+      <div class="plan-body">
+        <div class="plan-tier">
+          <span data-lang-inline="en">Luxury Experience</span>
+          <span data-lang-inline="pt">Experiência de Luxo</span>
+        </div>
+        <div class="plan-name">
+          <span data-lang="en">Cerrado <em>Premium</em></span>
+          <span data-lang="pt">Cerrado <em>Premium</em></span>
+        </div>
+        <div class="plan-duration">
+          <span data-lang-inline="en">10 Days · 9 Nights · Full Goiás</span>
+          <span data-lang-inline="pt">10 Dias · 9 Noites · Goiás Completo</span>
+        </div>
+        <div class="plan-price-block">
+          <div>
+            <div class="plan-price-brl">R$ 8.990</div>
+            <span class="plan-price-usd">≈ USD 1.798</span>
+            <span class="plan-price-pp">
+              <span data-lang-inline="en">per person · private suite</span>
+              <span data-lang-inline="pt">por pessoa · suíte privativa</span>
+            </span>
+          </div>
+        </div>
+        <ul class="plan-itinerary">
+          <li><span class="itin-dot"></span>
+            <span data-lang="en"><strong>Days 1–3</strong> — Chapada dos Veadeiros: exclusive trekking, private waterfall access, stargazing session</span>
+            <span data-lang="pt"><strong>Dias 1–3</strong> — Chapada dos Veadeiros: trekking exclusivo, acesso privativo a cachoeiras, sessão de astronomia</span>
+          </li>
+          <li><span class="itin-dot"></span>
+            <span data-lang="en"><strong>Days 4–5</strong> — Cidade de Goiás: private guided tour, baroque concert, exclusive colonial dinner</span>
+            <span data-lang="pt"><strong>Dias 4–5</strong> — Cidade de Goiás: tour privativo, concerto barroco, jantar colonial exclusivo</span>
+          </li>
+          <li><span class="itin-dot"></span>
+            <span data-lang="en"><strong>Days 6–7</strong> — Pirenópolis: private waterfall, silver atelier, cooking masterclass with local chef</span>
+            <span data-lang="pt"><strong>Dias 6–7</strong> — Pirenópolis: cachoeira privativa, ateliê de prata, masterclass com chef local</span>
+          </li>
+          <li><span class="itin-dot"></span>
+            <span data-lang="en"><strong>Days 8–10</strong> — Luxury fazenda stay: horseback riding, hot-air balloon, spa, farewell gala dinner</span>
+            <span data-lang="pt"><strong>Dias 8–10</strong> — Fazenda de luxo: cavalgada, balão, spa, jantar de gala de despedida</span>
+          </li>
+        </ul>
+        <div class="plan-includes">
+          <span class="plan-include-tag">✓ <span data-lang-inline="en">Luxury Suites</span><span data-lang-inline="pt">Suítes de Luxo</span></span>
+          <span class="plan-include-tag">✓ <span data-lang-inline="en">Private Chef</span><span data-lang-inline="pt">Chef Privativo</span></span>
+          <span class="plan-include-tag">✓ <span data-lang-inline="en">Private Guide</span><span data-lang-inline="pt">Guia Privado</span></span>
+          <span class="plan-include-tag">✓ <span data-lang-inline="en">Executive SUV</span><span data-lang-inline="pt">SUV Executivo</span></span>
+          <span class="plan-include-tag">✓ <span data-lang-inline="en">Spa Access</span><span data-lang-inline="pt">Acesso ao Spa</span></span>
+          <span class="plan-include-tag">✓ <span data-lang-inline="en">Concierge 24h</span><span data-lang-inline="pt">Concierge 24h</span></span>
+        </div>
+        <a href="#contact" class="plan-cta">
+          <span data-lang-inline="en">Reserve Now</span>
+          <span data-lang-inline="pt">Reservar Agora</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CERTIFICATIONS / TRUST BADGES -->
+<section class="certifications" id="certifications">
+  <div class="cert-header">
+    <span class="section-tag" style="color: var(--terra);">
+      <span data-lang-inline="en">Accreditations & Certifications</span>
+      <span data-lang-inline="pt">Acreditações & Certificações</span>
+    </span>
+    <h3 data-lang="en">Trusted by <em>Authorities</em> in Travel</h3>
+    <h3 data-lang="pt">Certificados pelas <em>Autoridades</em> do Turismo</h3>
+  </div>
+  <div class="cert-row">
+
+    <!-- CADASTUR -->
+    <div class="cert-badge">
+      <div class="cert-icon">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="40" cy="40" r="38" fill="#009c3b" opacity="0.1"/>
+          <circle cx="40" cy="40" r="35" stroke="#009c3b" stroke-width="2.5" fill="none"/>
+          <path d="M25 40 L35 50 L55 30" stroke="#009c3b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <text x="40" y="72" text-anchor="middle" font-family="Arial" font-size="8" font-weight="bold" fill="#009c3b">CADASTUR</text>
+        </svg>
+      </div>
+      <div class="cert-name">Cadastur<br/>Ministério do Turismo</div>
+      <div class="cert-desc">Registro Oficial<br/>Nº 52.000.4827/2022</div>
+      <div class="cert-year">Brasil · 2022</div>
+    </div>
+
+    <!-- EMBRATUR -->
+    <div class="cert-badge">
+      <div class="cert-icon">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="5" y="5" width="70" height="70" rx="8" fill="#002776" opacity="0.08"/>
+          <rect x="5" y="5" width="70" height="70" rx="8" stroke="#002776" stroke-width="2.5" fill="none"/>
+          <circle cx="40" cy="35" r="12" fill="#002776" opacity="0.15"/>
+          <circle cx="40" cy="35" r="10" stroke="#002776" stroke-width="2" fill="none"/>
+          <path d="M30 35 Q40 25 50 35" stroke="#009c3b" stroke-width="2.5" fill="none"/>
+          <circle cx="40" cy="35" r="4" fill="#FFDF00"/>
+          <text x="40" y="65" text-anchor="middle" font-family="Arial" font-size="8" font-weight="bold" fill="#002776">EMBRATUR</text>
+        </svg>
+      </div>
+      <div class="cert-name">EMBRATUR<br/>Agência Oficial</div>
+      <div class="cert-desc">Instituto Brasileiro<br/>de Turismo</div>
+      <div class="cert-year">Brasil · 2023</div>
+    </div>
+
+    <!-- ABAV -->
+    <div class="cert-badge">
+      <div class="cert-icon">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="40,5 72,22 72,58 40,75 8,58 8,22" fill="#c8a951" opacity="0.12"/>
+          <polygon points="40,5 72,22 72,58 40,75 8,58 8,22" stroke="#c8a951" stroke-width="2.5" fill="none"/>
+          <text x="40" y="38" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#c8a951">ABAV</text>
+          <text x="40" y="55" text-anchor="middle" font-family="Arial" font-size="7" fill="#c8a951">MEMBER AGENCY</text>
+          <text x="40" y="68" text-anchor="middle" font-family="Arial" font-size="6" fill="#c8a951">FLAIR AFFILIATE</text>
+        </svg>
+      </div>
+      <div class="cert-name">ABAV<br/>Member Agency</div>
+      <div class="cert-desc">Associação Brasileira<br/>de Agências de Viagem</div>
+      <div class="cert-year">Brasil · Filiada 2023</div>
+    </div>
+
+    <!-- ASTA -->
+    <div class="cert-badge">
+      <div class="cert-icon">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="5" y="15" width="70" height="50" rx="5" fill="#003087" opacity="0.1"/>
+          <rect x="5" y="15" width="70" height="50" rx="5" stroke="#003087" stroke-width="2.5" fill="none"/>
+          <text x="40" y="42" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold" fill="#003087">ASTA</text>
+          <text x="40" y="55" text-anchor="middle" font-family="Arial" font-size="6" fill="#003087">VERIFIED MEMBER</text>
+          <line x1="20" y1="60" x2="60" y2="60" stroke="#B22222" stroke-width="2"/>
+          <text x="40" y="70" text-anchor="middle" font-family="Arial" font-size="5.5" fill="#B22222">AMERICAN SOCIETY OF TRAVEL ADVISORS</text>
+        </svg>
+      </div>
+      <div class="cert-name">ASTA Verified<br/>Travel Advisor</div>
+      <div class="cert-desc">American Society of<br/>Travel Advisors</div>
+      <div class="cert-year">USA · Verified 2024</div>
+    </div>
+
+    <!-- TRIPADVISOR -->
+    <div class="cert-badge">
+      <div class="cert-icon">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="40" cy="40" r="37" fill="#00AF87" opacity="0.1"/>
+          <circle cx="40" cy="40" r="35" stroke="#00AF87" stroke-width="2.5" fill="none"/>
+          <circle cx="25" cy="40" r="11" fill="#00AF87" opacity="0.2"/>
+          <circle cx="25" cy="40" r="11" stroke="#00AF87" stroke-width="2" fill="none"/>
+          <circle cx="25" cy="40" r="5" fill="#00AF87"/>
+          <circle cx="55" cy="40" r="11" fill="#CC0000" opacity="0.2"/>
+          <circle cx="55" cy="40" r="11" stroke="#CC0000" stroke-width="2" fill="none"/>
+          <circle cx="55" cy="40" r="5" fill="#CC0000"/>
+          <path d="M35 25 L40 20 L45 25" stroke="#00AF87" stroke-width="2" fill="none"/>
+          <text x="40" y="70" text-anchor="middle" font-family="Arial" font-size="6" font-weight="bold" fill="#00AF87">EXCELLENCE 2024</text>
+        </svg>
+      </div>
+      <div class="cert-name">Tripadvisor<br/>Excellence 2024</div>
+      <div class="cert-desc">Certificate of<br/>Excellence · 5★</div>
+      <div class="cert-year">Global · 2024</div>
+    </div>
+
+    <!-- IATA -->
+    <div class="cert-badge">
+      <div class="cert-icon">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="8" y="18" width="64" height="44" rx="4" fill="#004B87" opacity="0.1"/>
+          <rect x="8" y="18" width="64" height="44" rx="4" stroke="#004B87" stroke-width="2.5" fill="none"/>
+          <text x="40" y="42" text-anchor="middle" font-family="Arial" font-size="17" font-weight="bold" fill="#004B87">IATA</text>
+          <text x="40" y="52" text-anchor="middle" font-family="Arial" font-size="6" fill="#004B87">ACCREDITED AGENT</text>
+          <path d="M16 55 L64 55" stroke="#004B87" stroke-width="1.5" opacity="0.3"/>
+          <text x="40" y="63" text-anchor="middle" font-family="Arial" font-size="5.5" fill="#004B87">GOIÂNIA · GO · BR</text>
+        </svg>
+      </div>
+      <div class="cert-name">IATA<br/>Accredited Agent</div>
+      <div class="cert-desc">International Air<br/>Transport Association</div>
+      <div class="cert-year">International · 2023</div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ITINERARY -->
+<section class="itinerary" id="itinerary">
+  <div style="max-width:1200px; margin: 0 auto 60px; text-align:center;">
+    <span class="section-tag" style="color: var(--terra)">
+      <span data-lang-inline="en">Day by Day</span>
+      <span data-lang-inline="pt">Dia a Dia</span>
+    </span>
+    <h2 style="font-family:'Playfair Display',serif; font-size:clamp(2rem,4vw,3rem); color:var(--deep-green);">
+      <span data-lang="en">Your 7-Day <em style="color:var(--terra); font-style:italic;">Journey</em></span>
+      <span data-lang="pt">Sua <em style="color:var(--terra); font-style:italic;">Jornada</em> de 7 Dias</span>
+    </h2>
+  </div>
+  <div class="itin-wrap">
+    <div class="itin-day">
+      <div class="day-num">
+        <div class="day-circle"><span>1</span></div>
+        <div class="day-label">Day/Dia</div>
+      </div>
+      <div class="day-content">
+        <h3 data-lang="en">Arrival in <em>Goiânia</em></h3>
+        <h3 data-lang="pt">Chegada em <em>Goiânia</em></h3>
+        <p data-lang="en">International flight arrival at Santa Genoveva Airport. Private transfer to your hotel in Goiânia. Welcome dinner featuring authentic goianese cuisine with our bilingual guide team.</p>
+        <p data-lang="pt">Chegada ao Aeroporto Santa Genoveva. Translado privativo ao hotel em Goiânia. Jantar de boas-vindas com culinária goiana autêntica e nossa equipe de guias bilíngues.</p>
+        <div class="day-activities">
+          <span class="activity-tag">✈ GYN Airport</span>
+          <span class="activity-tag">🏨 Check-in</span>
+          <span class="activity-tag">🍽️ Welcome Dinner</span>
+        </div>
+      </div>
+    </div>
+    <div class="itin-day">
+      <div class="day-num">
+        <div class="day-circle"><span>2</span></div>
+        <div class="day-label">Day/Dia</div>
+      </div>
+      <div class="day-content">
+        <h3 data-lang="en"><em>Chapada</em> dos Veadeiros — Arrival</h3>
+        <h3 data-lang="pt">Chegada à <em>Chapada</em> dos Veadeiros</h3>
+        <p data-lang="en">Drive to Alto Paraíso de Goiás through scenic cerrado landscapes. Afternoon hike to Cariocas Waterfall. Sunset meditation at Vale da Lua with your guide.</p>
+        <p data-lang="pt">Percurso até Alto Paraíso de Goiás por paisagens do cerrado. Trilha às Cachoeiras das Cariocas. Meditação ao pôr do sol no Vale da Lua com guia especializado.</p>
+        <div class="day-activities">
+          <span class="activity-tag">🚐 Scenic Drive</span>
+          <span class="activity-tag">🌊 Waterfalls</span>
+          <span class="activity-tag">🌙 Vale da Lua</span>
+        </div>
+      </div>
+    </div>
+    <div class="itin-day">
+      <div class="day-num">
+        <div class="day-circle"><span>3</span></div>
+        <div class="day-label">Day/Dia</div>
+      </div>
+      <div class="day-content">
+        <h3 data-lang="en"><em>Chapada</em> — Full Day Trekking</h3>
+        <h3 data-lang="pt"><em>Chapada</em> — Trekking Dia Inteiro</h3>
+        <p data-lang="en">Full day exploration of Chapada dos Veadeiros National Park. Trek to Salto do Rio Preto Falls (80m drop). Cerrado fruit tasting lunch by the river.</p>
+        <p data-lang="pt">Exploração do Parque Nacional da Chapada dos Veadeiros. Trilha até as Cachoeiras do Salto do Rio Preto (80m). Almoço com degustação de frutos do cerrado à beira do rio.</p>
+        <div class="day-activities">
+          <span class="activity-tag">⛰️ National Park Trek</span>
+          <span class="activity-tag">🌺 Cerrado Flora</span>
+          <span class="activity-tag">🦜 Wildlife Spotting</span>
+        </div>
+      </div>
+    </div>
+    <div class="itin-day">
+      <div class="day-num">
+        <div class="day-circle"><span>4</span></div>
+        <div class="day-label">Day/Dia</div>
+      </div>
+      <div class="day-content">
+        <h3 data-lang="en"><em>Cidade de Goiás</em> — Colonial Heart</h3>
+        <h3 data-lang="pt"><em>Cidade de Goiás</em> — Coração Colonial</h3>
+        <p data-lang="en">Transfer to UNESCO World Heritage Cidade de Goiás. Walking tour through baroque churches, the Bandeirante Museum, and the historic market. Traditional lunch at a colonial-era restaurant.</p>
+        <p data-lang="pt">Translado para a Cidade de Goiás (Patrimônio UNESCO). Tour a pé por igrejas barrocas, Museu das Bandeiras e o mercado histórico. Almoço tradicional em restaurante da era colonial.</p>
+        <div class="day-activities">
+          <span class="activity-tag">🏛️ UNESCO Heritage</span>
+          <span class="activity-tag">⛪ Baroque Churches</span>
+          <span class="activity-tag">🏺 Museum Tour</span>
+        </div>
+      </div>
+    </div>
+    <div class="itin-day">
+      <div class="day-num">
+        <div class="day-circle"><span>5</span></div>
+        <div class="day-label">Day/Dia</div>
+      </div>
+      <div class="day-content">
+        <h3 data-lang="en"><em>Pirenópolis</em> — Colonial & Adventure</h3>
+        <h3 data-lang="pt"><em>Pirenópolis</em> — Colonial e Aventura</h3>
+        <p data-lang="en">Journey to Pirenópolis. Morning swim at Abade Waterfall, afternoon tour of the 18th-century Nossa Senhora do Rosário Church. Artisanal silver shopping and local crafts market.</p>
+        <p data-lang="pt">Percurso até Pirenópolis. Manhã na Cachoeira do Abade, tarde de visita à Igreja Nossa Senhora do Rosário (séc. XVIII). Compras de joias artesanais em prata e mercado de artesanato local.</p>
+        <div class="day-activities">
+          <span class="activity-tag">🌊 Cachoeira do Abade</span>
+          <span class="activity-tag">⛪ Historic Church</span>
+          <span class="activity-tag">💍 Silver Artisan Market</span>
+        </div>
+      </div>
+    </div>
+    <div class="itin-day">
+      <div class="day-num">
+        <div class="day-circle"><span>6</span></div>
+        <div class="day-label">Day/Dia</div>
+      </div>
+      <div class="day-content">
+        <h3 data-lang="en">Free Day & <em>Cerrado Experiences</em></h3>
+        <h3 data-lang="pt">Dia Livre & <em>Experiências no Cerrado</em></h3>
+        <p data-lang="en">Flexible day for optional activities: horseback riding through cerrado trails, hot-air balloon over the savanna, or a visit to a local farm for an authentic Goianese cooking class.</p>
+        <p data-lang="pt">Dia livre para atividades opcionais: cavalgada por trilhas do cerrado, voo de balão sobre o savana, ou visita a uma fazenda local para uma aula de culinária goiana autêntica.</p>
+        <div class="day-activities">
+          <span class="activity-tag">🐴 Horseback Riding</span>
+          <span class="activity-tag">🎈 Hot-Air Balloon</span>
+          <span class="activity-tag">👨‍🍳 Cooking Class</span>
+        </div>
+      </div>
+    </div>
+    <div class="itin-day">
+      <div class="day-num">
+        <div class="day-circle"><span>7</span></div>
+        <div class="day-label">Day/Dia</div>
+      </div>
+      <div class="day-content">
+        <h3 data-lang="en">Return — <em>Until Next Time</em></h3>
+        <h3 data-lang="pt">Retorno — <em>Até a Próxima</em></h3>
+        <p data-lang="en">Final breakfast with cerrado coffee ritual. Private transfer to Goiânia airport. Farewell gift bag with artisanal goianese products to take a piece of the cerrado home with you.</p>
+        <p data-lang="pt">Café da manhã final com ritual de café do cerrado. Translado privativo ao aeroporto de Goiânia. Kit de despedida com produtos artesanais goianos para levar um pedaço do cerrado em casa.</p>
+        <div class="day-activities">
+          <span class="activity-tag">☕ Coffee Ritual</span>
+          <span class="activity-tag">🎁 Farewell Gift</span>
+          <span class="activity-tag">✈ Departure GYN</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE NÓS / ABOUT US -->
+<section class="about-us" id="about-us">
+  <div class="about-us-inner">
+    <div class="about-us-top">
+      <div class="about-us-text">
+        <span class="section-tag-light">
+          <span data-lang-inline="en">About Us / Our Story</span>
+          <span data-lang-inline="pt">Sobre Nós / Nossa História</span>
+        </span>
+        <h2 data-lang="en">Born from the <em>Cerrado,</em><br/>Built for Explorers</h2>
+        <h2 data-lang="pt">Nascidos do <em>Cerrado,</em><br/>Feitos para Exploradores</h2>
+        <p data-lang="en">Cerrado Soul was founded in 2019 by a team of Goianese natives with a shared passion: to show the world the extraordinary beauty of a region that too few travellers know. Rooted in Formosa, Goiás, we bring together certified local guides, hospitality professionals, and cultural experts.</p>
+        <p data-lang="pt">A Cerrado Soul foi fundada em 2019 por um grupo de goianos apaixonados por um objetivo compartilhado: mostrar ao mundo a beleza extraordinária de uma região que poucos viajantes conhecem. Com raízes em Formosa, Goiás, reunimos guias locais certificados, profissionais de hospitalidade e especialistas culturais.</p>
+        <p data-lang="en">We hold official accreditations from the Brazilian Ministry of Tourism (Cadastur), EMBRATUR, ABAV, and the American Society of Travel Advisors (ASTA), ensuring every journey meets the highest international standards of safety, quality and ethics.</p>
+        <p data-lang="pt">Possuímos acreditações oficiais do Ministério do Turismo (Cadastur), EMBRATUR, ABAV e da American Society of Travel Advisors (ASTA), garantindo que cada viagem atenda aos mais altos padrões internacionais de segurança, qualidade e ética.</p>
+        <ul class="about-us-values">
+          <li>
+            <span class="val-icon">🌿</span>
+            <div>
+              <strong data-lang="en">Sustainability First</strong>
+              <strong data-lang="pt">Sustentabilidade em Primeiro</strong>
+              <span data-lang="en">Every itinerary is designed with minimal environmental impact and maximum respect for the cerrado ecosystem.</span>
+              <span data-lang="pt">Cada roteiro é pensado com impacto ambiental mínimo e máximo respeito ao ecossistema do cerrado.</span>
+            </div>
+          </li>
+          <li>
+            <span class="val-icon">🤝</span>
+            <div>
+              <strong data-lang="en">Community Partnership</strong>
+              <strong data-lang="pt">Parceria Comunitária</strong>
+              <span data-lang="en">We work exclusively with local businesses, artisans and guides, ensuring tourism directly benefits Goiás communities.</span>
+              <span data-lang="pt">Trabalhamos exclusivamente com negócios locais, artesãos e guias, garantindo que o turismo beneficie diretamente as comunidades goianas.</span>
+            </div>
+          </li>
+          <li>
+            <span class="val-icon">🌐</span>
+            <div>
+              <strong data-lang="en">Bilingual Excellence</strong>
+              <strong data-lang="pt">Excelência Bilíngue</strong>
+              <span data-lang="en">All guides, materials and support are fully bilingual (English & Portuguese) for seamless international travel.</span>
+              <span data-lang="pt">Todos os guias, materiais e suporte são totalmente bilíngues (inglês & português) para uma viagem internacional sem barreiras.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <div class="mission-card">
+          <h3>
+            <span data-lang-inline="en">Our Mission</span>
+            <span data-lang-inline="pt">Nossa Missão</span>
+          </h3>
+          <div class="mission-quote" data-lang="en">"To transform every traveller into a <em>guardian</em> of the cerrado — through unforgettable experiences that connect people with Brazil's most magnificent secret."</div>
+          <div class="mission-quote" data-lang="pt">"Transformar cada viajante em um <em>guardião</em> do cerrado — por meio de experiências inesquecíveis que conectam pessoas ao mais magnífico segredo do Brasil."</div>
+          <div class="mission-details" data-lang="en">
+            Founded: Formosa, Goiás — 2019 · Registro Cadastur: 52.000.4827/2022 · CNPJ: 38.291.475/0001-66 · Bilingual agency serving international and domestic travellers with certified guides, executive transport, and curated cultural experiences exclusively in Goiás.
+          </div>
+          <div class="mission-details" data-lang="pt">
+            Fundação: Formosa, Goiás — 2019 · Registro Cadastur: 52.000.4827/2022 · CNPJ: 38.291.475/0001-66 · Agência bilíngue que atende viajantes nacionais e internacionais com guias certificados, transporte executivo e experiências culturais exclusivas em Goiás.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEAM SECTION - IMPROVED -->
+    <div class="team-section">
+      <div class="team-header">
+        <span class="section-tag-light">
+          <span data-lang-inline="en">Meet Our Team</span>
+          <span data-lang-inline="pt">Conheça Nossa Equipe</span>
+        </span>
+        <h2 data-lang="en">The <em style="color:var(--gold);">People</em> Behind Cerrado Soul</h2>
+        <h2 data-lang="pt">As <em style="color:var(--gold);">Pessoas</em> Por Trás da Cerrado Soul</h2>
+        <p data-lang="en">Passionate experts dedicated to creating unforgettable experiences</p>
+        <p data-lang="pt">Especialistas apaixonados dedicados a criar experiências inesquecíveis</p>
+      </div>
+      <div class="team-row">
+        <div class="team-card">
+          <div class="team-avatar">L</div>
+          <div class="team-name">Lucas Mendes</div>
+          <div class="team-role">
+            <span data-lang-inline="en">Founder & Lead Guide</span>
+            <span data-lang-inline="pt">Fundador & Guia Chefe</span>
+          </div>
+          <div class="team-bio" data-lang="en">Goianese born & raised. Certified ecotourism guide with 12 years of experience in Chapada dos Veadeiros.</div>
+          <div class="team-bio" data-lang="pt">Nascido e criado em Goiás. Guia de ecoturismo certificado com 12 anos de experiência na Chapada dos Veadeiros.</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar" style="background: linear-gradient(135deg, #D4A227, #1C3A28);">H</div>
+          <div class="team-name">Hermes Gabriel</div>
+          <div class="team-role">
+            <span data-lang-inline="en">Cultural Director & Interpreter</span>
+            <span data-lang-inline="pt">Diretor Cultural & Intérprete</span>
+          </div>
+          <div class="team-bio" data-lang="en">MA in Cultural Heritage from UFG. Fluent in English, Portuguese and Spanish. Specialist in colonial Goiás history.</div>
+          <div class="team-bio" data-lang="pt">Mestre em Patrimônio Cultural pela UFG. Fluente em inglês, português e espanhol. Especialista em história colonial goiana.</div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar" style="background: linear-gradient(135deg, #1C3A28, #C4521A);">E</div>
+          <div class="team-name">Eduardo Klein</div>
+          <div class="team-role">
+            <span data-lang-inline="en">Operations & Logistics Manager</span>
+            <span data-lang-inline="pt">Gerente de Operações</span>
+          </div>
+          <div class="team-bio" data-lang="en">15 years in Brazilian hospitality. Ensures every transfer, accommodation and meal runs flawlessly.</div>
+          <div class="team-bio" data-lang="pt">15 anos na hospitalidade brasileira. Garante que cada translado, hospedagem e refeição ocorra com perfeição.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <h3>Cerrado <em>Soul</em></h3>
+      <p data-lang="en">Premium travel experiences in the heart of Brazil. Exclusively Goiás. Bilingual service. Unforgettable memories.</p>
+      <p data-lang="pt">Experiências de viagem premium no coração do Brasil. Exclusivamente Goiás. Atendimento bilíngue. Memórias inesquecíveis.</p>
+      <div class="footer-contact">
+        <div>📍 Formosa, Goiás — CEP 73.800-000</div>
+        <div>📞 +55 (61) 98340-2271</div>
+        <div>✉ <a href="mailto:hello@cerradosoul.com.br">hello@cerradosoul.com.br</a></div>
+        <div>🌐 <a href="#">www.cerradosoul.com.br</a></div>
+        <div>CNPJ: 38.291.475/0001-66</div>
+      </div>
+      <div class="footer-certs">
+        <span class="footer-cert-dot">Cadastur ✓</span>
+        <span class="footer-cert-dot">EMBRATUR ✓</span>
+        <span class="footer-cert-dot">ABAV ✓</span>
+        <span class="footer-cert-dot">ASTA ✓</span>
+        <span class="footer-cert-dot">IATA ✓</span>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>
+        <span data-lang-inline="en">Destinations</span>
+        <span data-lang-inline="pt">Destinos</span>
+      </h4>
+      <ul>
+        <li>Chapada dos Veadeiros</li>
+        <li>Cidade de Goiás</li>
+        <li>Pirenópolis</li>
+        <li>Alto Paraíso de Goiás</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>
+        <span data-lang-inline="en">Package Includes</span>
+        <span data-lang-inline="pt">Pacote Inclui</span>
+      </h4>
+      <ul>
+        <li data-lang="en">Transfers & Flights</li>
+        <li data-lang="pt">Translados e Voos</li>
+        <li data-lang="en">Accommodation</li>
+        <li data-lang="pt">Acomodação</li>
+        <li data-lang="en">Meals & Gastronomy</li>
+        <li data-lang="pt">Alimentação</li>
+        <li data-lang="en">Guided Itinerary</li>
+        <li data-lang="pt">Roteiro Guiado</li>
+        <li data-lang="en">Bilingual Guide</li>
+        <li data-lang="pt">Guia Bilíngue</li>
+        <li data-lang="en">Entry Fees</li>
+        <li data-lang="pt">Ingressos</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Cerrado Soul — Goiás: The Heart of Brazil · CNPJ 38.291.475/0001-66 · Cadastur 52.000.4827/2022</p>
+    <p style="color:rgba(244,236,216,0.12);">CEPMG – Unidade Formosa • Profª Renata Luquez • Língua Inglesa – 2ª Série</p>
+  </div>
+</footer>
+
+<script>
+// Language toggle function - Fixed
+function setLang(lang) {
+  // Remove any existing language class
+  document.body.classList.remove('pt');
+  
+  // Add 'pt' class if Portuguese is selected
+  if (lang === 'pt') {
+    document.body.classList.add('pt');
+  }
+  
+  // Update button states
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
+  
+  // Save preference to localStorage
+  localStorage.setItem('cerrado-soul-lang', lang);
+}
+
+// Initialize language on page load
+document.addEventListener('DOMContentLoaded', function() {
+  // Check for saved preference
+  const savedLang = localStorage.getItem('cerrado-soul-lang');
+  if (savedLang) {
+    setLang(savedLang);
+  }
+});
+
+// Intersection Observer for scroll animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.pkg-card, .dest-card, .itin-day, .stat, .about-card, .plan-card, .cert-badge, .team-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  observer.observe(el);
+});
+</script>
+
+</body>
+</html>
